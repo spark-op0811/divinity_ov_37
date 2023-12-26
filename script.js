@@ -1,5 +1,6 @@
 document.getElementById("calc-btn").onclick = function () {
     let IntV = document.getElementById("int-input").value.toString();
+    let TargetV = document.getElementById("target-int-input").value.toString();
     if (IntV != "") {
         let terms_array = [];
         let temp_IntV = IntV;
@@ -9,10 +10,18 @@ document.getElementById("calc-btn").onclick = function () {
         }
         console.log(terms_array);
         let equations = terms_array[0];
-        document.getElementById("result-div").innerHTML += equations + " = " + eval(equations);
+        if (TargetV != "" && TargetV == eval(equations)) {
+            document.getElementById("result-div").innerHTML += `<p style="color: #ff7b72">` + equations + " = " + eval(equations) + "</p>";
+        }else{
+            document.getElementById("result-div").innerHTML += "<p>" + equations + " = " + eval(equations) + "</p>";
+        }
         for (var i = 1; i < terms_array.length; i++) {
             equations = equations + " + " + terms_array[i];
-            document.getElementById("result-div").innerHTML += "<br>" + equations + " = " + eval(equations);
+            if (TargetV != "" && TargetV == eval(equations)) {
+                document.getElementById("result-div").innerHTML += `<p style="color: #ff7b72">` + equations + " = " + eval(equations) + "</p>";
+            }else{
+                document.getElementById("result-div").innerHTML += "<p>" + equations + " = " + eval(equations) + "</p>";
+            }
         }
     }
 };
