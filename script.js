@@ -8,8 +8,8 @@ document.getElementById("calc-btn").onclick = function () {
             terms_array.push(temp_IntV.slice(-3));
             temp_IntV = temp_IntV.slice(0, temp_IntV.length - 3);
         }
-        console.log(terms_array);
         let equations = terms_array[0];
+        document.getElementById("result-div").innerHTML = "";
         if (TargetV != "" && TargetV == eval(equations)) {
             document.getElementById("result-div").innerHTML += `<p style="color: #ff7b72">` + equations + " = " + eval(equations) + "</p>";
         }else{
