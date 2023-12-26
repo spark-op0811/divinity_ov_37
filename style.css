@@ -20,3 +20,9 @@
 #calc-btn:active {
     background-color: rgb(57, 255, 27);
 }
+
+#target-int-input {
+    width: 300px;
+    height: 40px;
+    margin-top: 15px;
+}
